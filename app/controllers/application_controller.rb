@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
       @user = Employee.new(name: params["name"], Username: params["Username"], password: params["password"])
       @user.save
       session[:user_id] = @user.id
-      redirect '/employees'
+      redirect '/employees/welcome'
     end
 
     get '/sessions/login' do
@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
       @user = Employee.find_by(Username: params[:Username], password: params[:password])
       if @user
         session[:user_id] = @user.id
-        redirect '/employees'
+        redirect '/employees/welcome'
       end
       redirect '/sessions/login'
     end
