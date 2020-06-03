@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(version: 2) do
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
+    t.string "Username"
+    t.string "password"
   end
 
   create_table "tickets", force: :cascade do |t|

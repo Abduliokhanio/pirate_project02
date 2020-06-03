@@ -6,4 +6,18 @@ class ApplicationController < Sinatra::Base
     get '/' do 
       erb :'index'
     end 
+
+    get '/register' do 
+      erb :'/registrations/signup'
+    end 
+
+    post '/registrations' do
+      @user = Employee.new(name: params["name"], Username: params["Username"], password: params["password"])
+      @user.save
+      session[:user_id] = @user.id
+      redirect '/employees'
+    end
+
+
+
   end
