@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
-    get '/' do 
-        erb :'index'
+
+    get '/employees' do 
+        erb :'/employees/index'
     end 
 end
